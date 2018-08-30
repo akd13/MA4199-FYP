@@ -10,8 +10,14 @@ def read_values(index,list):
 
 df_main = pd.read_csv('Data/merged.txt', sep=",")
 
-for i in range(100):
-	plt.plot(TXREADS_LIST, read_values(i,TXREADS_LIST), label = df_main.iloc[i]['GeneName'])
+fig = plt.subplot(111)
+for i in range(20):
+	fig.plot(TXREADS_LIST, read_values(i,TXREADS_LIST), label = df_main.iloc[i]['GeneName'])
 
-plt.legend(loc = 'upper right')
+#Plot with legend
+chartBox = fig.get_position()
+fig.set_position([chartBox.x0, chartBox.y0, chartBox.width*0.6, chartBox.height])
+fig.legend(loc='upper center', bbox_to_anchor=(1.45, 1.1), shadow=True, ncol=1)
+plt.title(TXREADS)
 plt.show()
+plt.savefig('Plots/'+TXREADS)
