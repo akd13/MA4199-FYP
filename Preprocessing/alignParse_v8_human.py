@@ -9,7 +9,8 @@ directory = sys.argv[1]
 # eg directory = bartel_lab.3\huili\bowtie\bowtie-0.9.9\datasets\s_8_seed21/
 # corefilename = s_8_seed21
 # eg .map file = s_8_seed21_zeroMM.map
-corefilename = directory[:-1].split('/')[-1]
+# corefilename = directory[:-1].split('/')[-1]
+corefilename = sys.argv[2]
 
 infilePaths = [directory+corefilename+'_zeroMM.map', directory+corefilename+'_oneMM.map', directory+corefilename+'_twoMM.map']
 #infilePaths = [directory+corefilename+'_zeroMM.map', directory+corefilename+'_oneMM.map']

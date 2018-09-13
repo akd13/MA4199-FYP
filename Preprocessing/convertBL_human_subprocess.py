@@ -35,7 +35,8 @@ def makeSplitfiles(infileLines, outfileString, numSplitfiles, readLength):
 queryFilePath = sys.argv[1] ## queryFilePath includes directory
 #directory = '/lab/bartel/huili/Databases/hg18/'
 #directory = '/lab/bartel3_ata/huili/m_musculus_asm/'
-directory = '/home/hguo/Downloads/Homo_sapiens/UCSC/hg19/Sequence/Chromosomes/nibDirectory/'
+# directory = '/home/hguo/Downloads/Homo_sapiens/UCSC/hg19/Sequence/Chromosomes/nibDirectory/'
+directory = sys.argv[2]
 
 lastSlash = queryFilePath.rfind('/')
 inDirectory = queryFilePath[:lastSlash]
@@ -84,7 +85,9 @@ if not needToSplit:
     trackfile = open(trackfilePath, 'w')
     trackfile.write('this file is done')
     trackfile.close()
-    
+    for file in os.listdir(os.getcwd()):
+        if file.endswith(".track"):
+            os.remove(file)
 
 else:
     print '======= '+outfileString+' ============'
