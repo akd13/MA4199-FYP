@@ -13,7 +13,7 @@ df_main = pd.read_csv('Data/cleaned.txt', sep=",")
 print(df_main.head(5))
 X = df_main.values
 
-remodel = hmm.GaussianHMM(n_components=3, covariance_type="full", n_iter=100)
+remodel = hmm.GaussianHMM(n_components=3, covariance_type="full", n_iter=100) #consider Gaussian Emissions
 remodel.fit(X)
 Z2 = remodel.predict(X)
 print(Z2)
