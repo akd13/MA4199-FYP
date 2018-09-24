@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 from hmmlearn import hmm
+import warnings
+warnings.filterwarnings("ignore")
 
 df_main = pd.read_csv('Data/cleaned.txt', sep=",")
 
@@ -12,8 +14,22 @@ df_main = pd.read_csv('Data/cleaned.txt', sep=",")
 
 print(df_main.head(5))
 X = df_main.values
+print(X)
 
-remodel = hmm.GaussianHMM(n_components=3, covariance_type="full", n_iter=100) #consider Gaussian Emissions
-remodel.fit(X)
-Z2 = remodel.predict(X)
-print(Z2)
+df_new = df_main[['cdRPKM0','cdRPKM0']]
+print(df_new.head(5))
+X1 = df_new.values
+
+remodel = hmm.GaussianHMM(n_components=3,n_iter=100) #consider Gaussian Emissions
+remodel.fit(X) #get sequence of states using Viterbi
+Z = remodel.predict(X)
+
+# remodel1 = hmm.GaussianHMM(n_components=2, covariance_type="full", n_iter=100)
+# remodel1.fit(X1)
+# Z1 = remodel.predict(X1)
+
+print("Hidden states are")
+for idx,i in enumerate(Z):
+	print("State ", idx, " is ",i)
+# print(Z1[1:15])
+
