@@ -23,13 +23,14 @@ X1 = df_new.values
 remodel = hmm.GaussianHMM(n_components=3,n_iter=100) #consider Gaussian Emissions
 remodel.fit(X) #get sequence of states using Viterbi
 Z = remodel.predict(X)
+print(remodel.score(X[:10]))
 
-# remodel1 = hmm.GaussianHMM(n_components=2, covariance_type="full", n_iter=100)
-# remodel1.fit(X1)
-# Z1 = remodel.predict(X1)
-
-print("Hidden states are")
-for idx,i in enumerate(Z):
-	print("State ", idx, " is ",i)
-# print(Z1[1:15])
+# # remodel1 = hmm.GaussianHMM(n_components=2, covariance_type="full", n_iter=100)
+# # remodel1.fit(X1)
+# # Z1 = remodel.predict(X1)
+#
+# print("Hidden states are")
+# for idx,i in enumerate(Z):
+# 	print("State ", idx, " is ",i)
+# # print(Z1[1:15])
 
