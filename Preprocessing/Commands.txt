@@ -1,0 +1,19 @@
+Commands
+
+python checkQualityMark_v3.py Data/ CGATGT-s_6_1
+
+bowtie --phred64-quals -n 0 -l 29 -e 200 -k 1 -m 1 -p 24 /home/hguo/Documents/indexes/hg19/h_sapiens_genome adapTrim_CGATGT-s_6_1_sequence.txt CGATGT-s_6_1_seed29_genome_zeroMM.map --un CGATGT-s_6_1_seed29_genome_zeroUn.txt 
+
+bowtie --phred64-quals -n 1 -l 29 -e 200 -k 1 -m 1 -p 24 /home/hguo/Documents/indexes/hg19/h_sapiens_genome CGATGT-s_6_1_seed29_genome_zeroUn.txt CGATGT-s_6_1_seed29_genome_oneMM.map --un CGATGT-s_6_1_seed29_genome_oneUn.txt 
+
+bowtie --phred64-quals -n 2 -l 29 -e 200 -k 1 -m 1 -p 24 -y /home/hguo/Documents/indexes/hg19/h_sapiens_genome CGATGT-s_6_1_seed29_genome_oneUn.txt CGATGT-s_6_1_seed29_genome_twoMM.map --un CGATGT-s_6_1_seed29_genome_twoUn.txt
+
+python alignParse_v8_human.py Data/ CGATGT-s_6_1_seed29_genome
+
+./BLconversion
+
+diff zhaoy/preprocessing/files/CGATGT-s_6_1_seed29_genome.22.oll akankshitad/Processing/Preprocessing/Data/CGATGT-s_6_1_seed29_genome/CGATGT-s_6_1_seed29_genome.22.oll
+
+python rrnaLabel_human.py Data/CGATGT-s_6_1_seed29_genome/ 18 rRNA
+
+for x in *.rll; do mv "$x" "${x%.rll}.oll"; done
