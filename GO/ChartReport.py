@@ -62,17 +62,17 @@ def DAVIDenrich(listF, idType, bgF='', resF='', bgName = 'Background1', email = 
 email = raw_input("Enter authentication e-mail: ")
 gene_path = raw_input("Enter file path: " )
 background = raw_input("Enter background path: " )
-clusters = [5]
-num_clusters='5'
+clusters = [6]
+num_clusters='6'
 for i in range(1,int(num_clusters)+1):
-    list_genes = gene_path + '/AccNum'+str(i)+'.txt'
+    list_genes = gene_path + '/AccNums/AccNum'+str(i)+'.txt'
     print(list_genes)
     DAVIDenrich(listF = list_genes,bgF = background, idType = 'REFSEQ_MRNA',  email=email,listName = list_genes, category = 'KEGG_PATHWAY,GOTERM_CC_DIRECT,GOTERM_MF_DIRECT,GOTERM_BP_DIRECT')
 
 for num_clusters in clusters:
     common_go_file = gene_path[:-2]+'GO_'+str(num_clusters)+'.txt'
     for i in range(1,int(num_clusters)+1):
-        file = gene_path+'AccNum'+str(i)+'_withBG_chartReport.txt'
+        file = gene_path+'/AccNums/AccNum'+str(i)+'_withBG_chartReport.txt'
         df = pd.read_csv(file, sep='\t')
         # df_write = df_write.append(['Cluster'+str(i)], ignore_index=True)
         empty = pd.Series(['-'] * 13, index=['Category', 'Term', 'Count', '%', 'Pvalue', 'Genes', 'List Total',
