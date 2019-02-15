@@ -62,8 +62,8 @@ def DAVIDenrich(listF, idType, bgF='', resF='', bgName = 'Background1', email = 
 email = raw_input("Enter authentication e-mail: ")
 gene_path = raw_input("Enter file path: " )
 background = raw_input("Enter background path: " )
-clusters = [6]
-num_clusters='6'
+clusters = [4]
+num_clusters='4'
 for i in range(1,int(num_clusters)+1):
     list_genes = gene_path + '/AccNums/AccNum'+str(i)+'.txt'
     print(list_genes)
