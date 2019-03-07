@@ -71,13 +71,13 @@ list_name='AccNum'
 background = 'AccNum.txt'
 
 write_tos = [
-            '/Users/akankshitadash/Desktop/TE_chrE_filtered/']
+            '/Users/akankshitadash/Desktop/KMeans/']
 
 clusters = ['4','5','6']
 
 for write_to in write_tos:
     for num_clusters in clusters:
-        gene_path = write_to + num_clusters+ '/AccNums/'
+        gene_path = write_to + num_clusters+'/'
         for i in range(1,int(num_clusters)+1):
             list_genes = gene_path + list_name+str(i)+'.txt'
             print(list_genes)
