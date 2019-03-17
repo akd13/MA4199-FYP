@@ -1,3 +1,5 @@
 venv
 Preprocessing/Data
 **/.ipynb_checkpoints
+*.docx
+*.pptx
