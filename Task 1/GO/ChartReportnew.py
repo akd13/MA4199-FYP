@@ -71,13 +71,14 @@ list_name='AccNum'
 background = 'AccNum.txt'
 
 write_tos = [
-            '/Users/akankshitadash/Desktop/KMeans/']
+            '/Users/akankshitadash/Desktop/Mock/']
 
 clusters = ['4','5','6']
 
 for write_to in write_tos:
     for num_clusters in clusters:
         gene_path = write_to + num_clusters+'/'
+        print("Genes are got from",gene_path)
         for i in range(1,int(num_clusters)+1):
             list_genes = gene_path + list_name+str(i)+'.txt'
             print(list_genes)
@@ -85,9 +86,8 @@ for write_to in write_tos:
 
         common_go_file = gene_path[:-2]+'GO_'+str(num_clusters)+'.txt'
         for i in range(1,int(num_clusters)+1):
-            file = gene_path + list_name+str(i)+'_withBG_chartReport.txt' # gene_path+'/AccNums/AccNum'+str(i)+'_withBG_chartReport.txt'
+            file = gene_path + list_name+str(i)+'_withBG_chartReport.txt' # gene_path+'/AccNum'+str(i)+'_withBG_chartReport.txt'
             df = pd.read_csv(file, sep='\t')
-            # df_write = df_write.append(['Cluster'+str(i)], ignore_index=True)
             empty = pd.Series(['-'] * 13, index=['Category', 'Term', 'Count', '%', 'Pvalue', 'Genes', 'List Total',
                                              'Pop Hits', 'Pop Total', 'Fold Enrichment', 'Bonferroni', 'Benjamini',
                                              'FDR'])
