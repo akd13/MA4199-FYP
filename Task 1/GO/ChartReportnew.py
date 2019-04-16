@@ -66,14 +66,13 @@ def DAVIDenrich(listF, idType, bgF='', resF='', bgName = 'Background1', email = 
 # write_to = raw_input("Enter file path to write to: " ) #example: /Users/akankshitadash/Clusters/4/
 # num_clusters= raw_input("Enter number of clusters:") #if 4 clusters, enter 4
 
-email = 'akdash@umich.edu'
+email = 'akankshita.dash@u.nus.edu'
 list_name='AccNum'
 background = 'AccNum.txt'
 
-write_tos = ['/Users/akankshitadash/Desktop/Bayesian Networks/log2foldTE/',
-            '/Users/akankshitadash/Desktop/Bayesian Networks/TE+log2foldTE/']
+write_tos = ['/Users/akankshitadash/Desktop/Replicate2/MockT0_Additional/']
 
-clusters = ['4','5','6']
+clusters = ['5','6']
 
 for write_to in write_tos:
     for num_clusters in clusters:
